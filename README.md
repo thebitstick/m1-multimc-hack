@@ -8,7 +8,7 @@ This repo contains a wrapper script to be used with [MultiMC](https://multimc.or
 
 ### Pre-requisites
 
-First, install the [Zulu Java 11 JDK for macOS ARM64](https://cdn.azul.com/zulu/bin/zulu11.43.1015-ca-jdk11.0.9.1-macos_aarch64.dmg).
+First, install the [Zulu Java 16 JDK for macOS ARM64](https://cdn.azul.com/zulu/bin/zulu16.30.19-ca-jdk16.0.1-macosx_aarch64.dmg).
 
 You'll also need a standard install of MultiMC.
 
@@ -16,19 +16,19 @@ You'll also need a standard install of MultiMC.
 
 Open a terminal (it's in the `Utilities` folder inside of `Applications`, if you're new to command line stuff).
 
-To make it easy to follow along, we'll make a new directory called `Minecraft` in our home folder. If you'd rather put this repo somewhere else, that's fine - the location doesn't really matter. If you do put it somewhere else, remember to change the references to it in the commands below.
+To make it easy to follow along, we'll make a new directory called `Git` in our home folder. If you'd rather put this repo somewhere else, that's fine - the location doesn't really matter. If you do put it somewhere else, remember to change the references to it in the commands below.
 
 The lines beginning with `#` below are comments and don't need to be entered, but it's fine to copy paste them in along with the rest.
 
 ```shell
 # Make a place to put our wrapper script and libraries
-mkdir -p ~/Minecraft
+mkdir -p ~/Git
 
 # enter the new directory
-cd ~/Minecraft
+cd ~/Git
 
 # clone this repo
-git clone https://github.com/yusefnapora/m1-multimc-hack.git
+git clone https://github.com/thebitstick/m1-multimc-hack.git
 ```
 
 ### Configure MultiMC
@@ -41,18 +41,18 @@ Go to Settings, then make sure the "Java Installation" checkbox is checked. Then
 
 ![Screenshot of instance Settings pane with "Auto-detect" button highlighted](./screenshots/detect-jvm.png)
 
-It should open a window with a list of Java versions. Find the one that says "zulu-11" in the path and select it, then hit OK. (You may need to resize the window to see the full path.)
+It should open a window with a list of Java versions. Find the one that says "zulu-16" in the path and select it, then hit OK. (You may need to resize the window to see the full path.)
 
 ![Screenshot of JVM list with correct JVM highlighted](./screenshots/select-zulu-jvm.png)
 
-Still in the Settings pane, switch to the "Custom Commands" tab. Check the "Custom Commands" checkbox. In the "Wrapper Command" box, enter the full path to the `mcwrap.py` script from this repo, e.g. `/Users/your-username/stuff/m1-multimc-hack/mcwrap.py`.
+Still in the Settings pane, switch to the "Custom Commands" tab. Check the "Custom Commands" checkbox. In the "Wrapper Command" box, enter the full path to the `mcwrap.py` script from this repo, e.g. `/Users/your-username/Git/m1-multimc-hack/mcwrap.py`.
 
 ![Screenshot of Custom Commands tab, with Wrapper Command box highlighted](./screenshots/custom-command.png)
 
 An easy way to get the full path (assuming you put this repo in `~/Minecraft`) is to open a terminal and enter:
 
 ```shell
-ls ~/Minecraft/m1-multimc-hack/mcwrap.py | pbcopy
+ls ~/Git/m1-multimc-hack/mcwrap.py | pbcopy
 ```
 
 This will expand the `~` character to the full path to your home directory (e.g. `/Users/yourname`), and copy the whole thing onto your clipboard using the `pbcopy` command. Now you can paste it into the "Wrapper Command" box.
